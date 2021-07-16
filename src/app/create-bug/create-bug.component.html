@@ -1,0 +1,139 @@
+
+<section class="bug">
+  <div class="parent">
+    
+ <!-- <div class="container">-->
+    <h2 class="text-center"><b><i><u>Create Bug</u></i></b></h2>
+    <div [hidden]="submitted" style="width: 400px;">
+      <div class="box">
+        <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter the Title" required minlength="5"  #title="ngModel" [(ngModel)]="bug.title" name="title">
+      <p>
+        <div *ngIf="!title?.valid && (title?.dirty || title?.touched)" class="error">
+        <div *ngIf="title.errors?.required">
+            Title is required
+        </div>
+        <div *ngIf="title.errors?.minlength">
+            Minimum length is {{title.errors?.minlength?.requiredLength}}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" cols="30" rows="5" class="form-control" placeholder="Describe the issue in detail" required minlength="10" maxlength="50" #description="ngModel"  [(ngModel)]="bug.bugDesc" name="description">
+      </textarea>
+      <p>
+        <div *ngIf="!description?.valid && (description?.dirty || description?.touched)" class="error">
+        <div *ngIf="description.errors?.required">
+            Description is required
+        </div>
+        <div *ngIf="description.errors?.minlength">
+            Minimum length is {{description.errors?.minlength?.requiredLength}}
+        </div>
+        <div *ngIf="title.errors?.maxlength">
+          Max length is {{description.errors?.maxlength?.requiredLength}}
+      </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" class="form-control" id="type" placeholder="Enter the Issue type" required minlength="4" #type="ngModel" [(ngModel)]="bug.type" name="type">
+      <p>
+        <div *ngIf="!type?.valid && (type?.dirty || type?.touched)" class="error">
+        <div *ngIf="type.errors?.required">
+            Type is required
+        </div>
+        <div *ngIf="type.errors?.minlength">
+            Minimum length is {{type.errors?.minlength?.requiredLength}}
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="priority">Priority</label> <br>
+       <!-- <input type="text" class="form-control" id="priority" required [(ngModel)]="bug.priority" name="priority">-->
+          <input type="radio" value="low" id="priority" name="priority" #priority="ngModel" required [(ngModel)]="bug.priority"> Low <br>
+          <input type="radio" value="medium" id="priority" name="priority" #priority="ngModel" required [(ngModel)]="bug.priority"> Medium <br>
+          <input type="radio" value="high" id="priority" name="priority" required [(ngModel)]="bug.priority"> High <br>
+          <div *ngIf="!priority?.valid && (priority?.dirty || priority?.touched)" class="error">
+            <div *ngIf="priority.errors?.required">
+              Priority is required
+            </div>
+          </div>
+        </div>
+<br>
+      <div class="form-group">
+        <label for="progress">Progress</label>
+        <input type="text" class="form-control" id="progress" placeholder="enter the progress" required minlength="2" pattern="^[0-9]*$" #progress="ngModel" [(ngModel)]="bug.progress" name="progress">
+        <p>
+          <div *ngIf="!progress?.valid && (progress?.dirty || progress?.touched)" class="error">
+          <div *ngIf="progress.errors?.required">
+              Progress is required
+          </div>
+          <div *ngIf="progress.errors?.minlength">
+            Progress minimum length is {{progress.errors?.minlength?.requiredLength}}
+          </div>
+          <div *ngIf="progress.errors?.pattern">
+            Only numbers are allowed!
+          </div>
+        </div>  
+      </div>
+<br>
+      <div class="form-group">
+        <label for="name">Status</label>
+        <select class="form-control" id="status" required [(ngModel)]="bug.status" name="status">
+          <option value="open">Open</option>
+          <option value="InProgress">InProgress</option>
+          <option value="closed">Closed</option>
+      </select>
+      </div>
+      <br><br>
+     
+      <div class="form-group">
+        <label for="assignee">Assignee</label>
+        <input type="text" class="form-control" id="assignee" placeholder="Enter the Title" required minlength="4"  #assignee="ngModel" [(ngModel)]="bug.assignee" name="assignee">
+        <p>
+          <div *ngIf="!assignee?.valid && (assignee?.dirty || assignee?.touched)" class="error">
+          <div *ngIf="assignee.errors?.required">
+              Assignee is required
+          </div>
+          <div *ngIf="assignee.errors?.minlength">
+              Minimum length is {{assignee.errors?.minlength?.requiredLength}}
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" class="form-control" id="startDate" required [(ngModel)]="bug.startDate" name="startDate">
+      </div>
+<br>
+
+      <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" class="form-control" id="endDate" required [(ngModel)]="bug.endDate" name="endDate">
+      </div>
+
+      <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <!--<button type="reset" class="btn btn-default">Reset</button>-->
+    <br><br><br>
+    
+        </form>
+      </div>
+     </div> 
+ <!-- </div>-->
+ </div>
+
+</section>
+
+<div [hidden]="!submitted">
+  <h4>Successfull!</h4>
+</div>

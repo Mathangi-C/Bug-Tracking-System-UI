@@ -1,0 +1,48 @@
+<section class="list">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Bug List</h2>
+      <!--<form>
+        <button (click)="list()" class="btn btn-link">Back to Bug List</button><br>
+      </form>-->
+    </div>
+    
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr >
+           <th>BugId</th>
+            <th>Title</th>
+            <!--<th>Description</th>-->
+            <th>Type</th>
+            <th>Priority</th>
+            <!--<th>Progress</th>-->
+            <th>Status</th>
+           <!-- <th>Assignee</th>
+            <th>StartDate</th>
+            <th>EndDate</th>-->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bug of bug | async" style="background-color:sandybrown">
+            <td>{{bug.bugId}}</td>
+            <td>{{bug.title}}</td>
+           <!-- <td>{{bug.bugDesc}}</td>-->
+            <td>{{bug.type}}</td>
+            <td>{{bug.priority}}</td>
+           <!--<td>{{bug.progress}}</td>-->
+            <td>{{bug.status}}</td>
+            <!--<td>{{bug.assignee}}</td>
+            <td>{{bug.startDate | date:'fullDate'}}</td>
+            <td>{{bug.endDate | date:'fullDate'}}</td>-->
+            <td><button (click)="deleteBug(bug.bugId)" class="btn btn-danger">Delete</button> 
+                <button (click)="updateBug(bug.bugId)" class="btn btn-info" style="margin-left: 10px">Update</button> 
+                <button (click)="bugDetails(bug.bugId)" class="btn btn-success" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

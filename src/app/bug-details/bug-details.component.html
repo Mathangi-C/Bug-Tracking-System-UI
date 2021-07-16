@@ -1,0 +1,41 @@
+<section class="details">
+<h2>Bug Details</h2> 
+
+<hr/>
+<div *ngIf="bug">
+  <div>
+    <label><b>Bug Id: </b></label> {{bug.bugId}}
+  </div>
+  <div>
+    <label><b>Title: </b></label> {{bug.title}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{bug.bugDesc}}
+  </div>
+  <div>
+    <label><b>Type: </b></label> {{bug.type}}
+  </div>
+  <div>
+    <label><b>Priority: </b></label> {{bug.priority}}
+  </div>
+  <div>
+    <label><b>Progress: </b></label> {{bug.progress}}
+  </div> 
+  <div>
+    <label><b>Status: </b></label> {{bug.status}}
+  </div> 
+  <div>
+    <label><b>Assignee: </b></label> {{bug.assignee}}
+  </div>
+  <div>
+    <label><b>Start Date: </b></label> {{bug.startDate | date:'fullDate'}}
+  </div>
+  <div>
+    <label><b>End Date: </b></label> {{bug.endDate | date:'fullDate'}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary" >Back to Bug List</button><br>
+</section>

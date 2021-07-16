@@ -1,0 +1,19 @@
+.error{
+    color: red;
+}
+.bug{
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+    background-color: lightblue;
+box-shadow:10px 20px 5px grey; 
+background:radial-gradient(#ff5f6d , #ffc371);
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
